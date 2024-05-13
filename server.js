@@ -12,6 +12,7 @@ const note = mongoose.model("notes",postSchema);
 app.use(cors());
 app.use(express.json())
 app.post("/add",function(req,res){
+    console.log(req.body);
     note.insertMany({id : req.body.id + 1,title : req.body.title ,content : req.body.content})
     res.redirect("/");
 })
@@ -33,7 +34,6 @@ app.post("/del",function(req,res){
         // notes.filter((note1,index) => {
         //     return (id !== index && note1.title !== req.body.title)
         // })
-        console.log(result,index);
         res.redirect("/");
     });
  
